@@ -64,7 +64,11 @@ const makeCycler = function(inputSource){
   }
 }
 
-const curry = undefined;
+const curry = function(func,srcArg){
+  return function(arg1,arg2){
+    return func(srcArg,arg1,arg2);
+  } 
+}
 const compose = undefined;
 
 exports.makeConstant=makeConstant;
