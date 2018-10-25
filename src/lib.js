@@ -15,12 +15,12 @@ const makeCounterFromZero = function(){
 }
 
 const makeDeltaTracker = function(deltaStatus){
-  let deltaState = {old : deltaStatus, delta : 0, new : deltaStatus};
   return function(currentDelta){
+    let deltaState = {old : deltaStatus, delta : 0, new : deltaStatus};
     if(currentDelta){
-      deltaState.old = deltaState.new;
       deltaState.delta = currentDelta;
       deltaState.new = deltaState.old + currentDelta;
+      deltaStatus = deltaState.new
     }
     return deltaState;
   }
