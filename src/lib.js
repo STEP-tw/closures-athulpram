@@ -20,8 +20,8 @@ const makeDeltaTracker = function(deltaStatus){
     if(currentDelta){
       deltaState.delta = currentDelta;
       deltaState.new = deltaState.old + currentDelta;
-      deltaStatus = deltaState.new
     }
+    deltaStatus = deltaState.new;
     return deltaState;
   }
 }
