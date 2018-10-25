@@ -64,12 +64,17 @@ const makeCycler = function(inputSource){
   }
 }
 
-const curry = function(func,srcArg){
+const curry = function(func,srcArgument){
   return function(arg1,arg2){
-    return func(srcArg,arg1,arg2);
+    return func(srcArgument,arg1,arg2);
   } 
 }
-const compose = undefined;
+
+const compose = function(function1,function2){
+   return function(arg1,arg2){
+    return function1(function2(arg1,arg2));
+   }
+};
 
 exports.makeConstant=makeConstant;
 exports.makeCounterFromZero=makeCounterFromZero;
