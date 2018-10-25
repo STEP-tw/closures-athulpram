@@ -48,7 +48,22 @@ const makeFiboGenerator = function(currentNumber,nextNumber){
   }
 };
 
-const makeCycler = undefined;
+const returnArg = function(value){
+  return value;
+}
+
+const makeCycler = function(inputSource){
+  let source = inputSource.map(returnArg);
+  let currentIndex = 0;
+  return function(){
+    let currentValue = source[currentIndex++];
+    if(currentIndex == source.length){
+      currentIndex=0;
+    }
+    return currentValue;
+  }
+}
+
 const curry = undefined;
 const compose = undefined;
 
