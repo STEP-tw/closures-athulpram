@@ -19,7 +19,7 @@ const testTrackerWithNegativeDeltaValue = function() {
   assert.deepEqual({old: 0, delta: -2, new: -2}, trackDelta(-2));
 };
 
-const testTracker = function(){
+const testTrackerWithrReusingResult = function(){
   let trackDelta=makeDeltaTracker(3);
   let result = trackDelta(1);
   assert.deepEqual({old :3,delta : 1, new : 4},result);
@@ -41,6 +41,8 @@ const runTests = function() {
 
   testTrackerWithNegativeDeltaValue();
   console.log("testTrackerWithNegativeDeltaValue passed");
+  
+  testTrackerWithrReusingResult();
+  console.log("testTrackerWithrReusingResult passed");
 };
-testTracker();
 runTests();
