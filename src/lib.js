@@ -26,7 +26,7 @@ const makeDeltaTracker = function(deltaStatus){
   }
 }
 
-const determineNumbers = function(currentNumber,nextNumber){
+const determineFiboState = function(currentNumber,nextNumber){
   if(!nextNumber && !currentNumber){
     nextNumber = 1;
     currentNumber = 0;
@@ -39,7 +39,7 @@ const determineNumbers = function(currentNumber,nextNumber){
 }
 
 const makeFiboGenerator = function(currentNumber,nextNumber){
-  let fiboState = determineNumbers(currentNumber,nextNumber);
+  let fiboState = determineFiboState(currentNumber,nextNumber);
   return function(){
     let swapVariable = fiboState.currentNumber;
     fiboState.currentNumber = fiboState.nextNumber;
@@ -48,12 +48,12 @@ const makeFiboGenerator = function(currentNumber,nextNumber){
   }
 };
 
-const returnArg = function(value){
+const returnArgument = function(value){
   return value;
 }
 
 const makeCycler = function(inputSource){
-  let source = inputSource.map(returnArg);
+  let source = inputSource.map(returnArgument);
   let currentIndex = 0;
   return function(){
     let currentValue = source[currentIndex++];
