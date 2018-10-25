@@ -64,9 +64,9 @@ const makeCycler = function(inputSource){
   }
 }
 
-const curry = function(functionName,srcArgument){
+const curry = function(functionRef,constArgument){
   return function(arg1,arg2){
-    return functionName(srcArgument,arg1,arg2);
+    return functionRef(constArgument,arg1,arg2);
   } 
 }
 
