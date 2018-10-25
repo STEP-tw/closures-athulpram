@@ -25,7 +25,29 @@ const makeDeltaTracker = function(deltaStatus){
     return deltaState;
   }
 }
-const makeFiboGenerator = undefined;
+
+const determineNumbers = function(currentNumber,nextNumber){
+  if(!nextNumber && !currentNumber){
+    nextNumber = 1;
+    currentNumber = 0;
+  }
+  if(currentNumber && !nextNumber){
+    nextNumber = currentNumber;
+    currentNumber = 0;
+  }
+  return {currentNumber,nextNumber};
+}
+
+const makeFiboGenerator = function(currentNumber,nextNumber){
+  let fiboState = determineNumbers(currentNumber,nextNumber);
+  return function(){
+    let swapVariable = fiboState.currentNumber;
+    fiboState.currentNumber = fiboState.nextNumber;
+    fiboState.nextNumber = fiboState.nextNumber + swapVariable;
+    return swapVariable;
+  }
+};
+
 const makeCycler = undefined;
 const curry = undefined;
 const compose = undefined;
